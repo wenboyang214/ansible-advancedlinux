@@ -163,6 +163,10 @@ function install_ansible_ubuntu()
     apt-get --yes --force-yes install git
     # install python
     apt-get --yes --force-yes install python-pip
+    
+    ##wenbo
+    python -m pip install -U pip -y
+    hash -d pip
 
  }
 
@@ -191,7 +195,8 @@ function install_ansible_ubuntu()
  function get_sshkeys()
  {
     log "INFO:Retrieving ssh keys from Azure Storage"
-    pip install azure-storage
+    #pip install azure-storage  ## wenbo changed
+    pip install azure-storage-blob --user
 
     # Download both Private and Public Key
     python GetSSHFromPrivateStorageAccount.py ${SSH_AZ_ACCOUNT_NAME} ${SSH_AZ_ACCOUNT_KEY} id_rsa

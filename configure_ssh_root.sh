@@ -139,6 +139,10 @@ function get_sshkeys()
     then
         apt-get --yes --force-yes update
         apt-get --yes --force-yes install python-pip
+        ##wenbo
+        python -m pip install -U pip
+        hash -d pip
+        
     elif [[ "${DIST}" == "CentOS" ]] ;
     then
         wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -147,7 +151,8 @@ function get_sshkeys()
     fi
 
     # Install Python Azure Storage SDK
-    pip install azure-storage
+    #pip install azure-storage   ##wenbo changed
+    pip install azure-storage-blob --user
 
     # Download Public Key
     python GetSSHFromPrivateStorageAccount.py  ${SSH_AZ_ACCOUNT_NAME} ${SSH_AZ_ACCOUNT_KEY} id_rsa.pub
