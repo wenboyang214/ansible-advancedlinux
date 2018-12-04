@@ -17,11 +17,11 @@ function log()
     echo "$1"
 }
 #---PARSE AND VALIDATE PARAMETERS---
-if [ $# -ne 7 ]; then
-    log "ERROR:Wrong number of arguments specified. Parameters received $#. Terminating the script."
-    
-    exit 1
-fi
+#if [ $# -ne 7 ]; then
+#    log "ERROR:Wrong number of arguments specified. Parameters received $#. Terminating the script."
+#    
+#    exit 1
+#fi
 #-----------------------------------------------------------------------------------------------------------------------------#
 while getopts :c:u:p:d:e:g:m: optname; do
     log "INFO:Option $optname set with value ${OPTARG}"
