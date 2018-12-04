@@ -59,7 +59,7 @@ done
 yum clean all
 
 # install ansible, facter and git
-yum -y install ansible facter git2u
+yum -y install ansible facter git
 
 # setting ansible and user creation
 sed -ie 's#\#vault_password_file = /path/to/vault_password_file#vault_password_file = /root/.vault-credentials#g' /etc/ansible/ansible.cfg
@@ -93,7 +93,7 @@ git_branch="master"
 
 # internal domain with stripped last point char
 domain_intern="${DOMAIN_INTERN}"
-domain_as_url=${${DOMAIN_INTERN}::-1}
+domain_as_url=${DOMAIN_INTERN::-1}
 
 cat << EOF > /etc/ansible/facts.d/preferences.fact
 [ansible]
