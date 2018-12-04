@@ -78,7 +78,7 @@ export HOME=/root
 git config --global credential.helper store
 
 cat << EOF > /root/.git-credentials
-https://${GIT_USERNAME}:${GIT_PASSWORD}@stash.wob.vw.vwg:8443
+https://${GIT_USERNAME}:${GIT_PASSWORD}@wenbya.visualstudio.com/AnsibleTest/_git/AnsibleTest
 EOF
 
 # fix file permissions
@@ -112,5 +112,6 @@ chmod 0755 /opt/ansible-environments
 chown root:root /opt/ansible-environments
 git clone https://${GIT_URL} /opt/ansible-environments
 cd /opt/ansible-environments/${ANSIBLE_ENVIRONMENT}
-ansible-galaxy install -f -p roles/ -r requirements.yml
+#ansible-galaxy install -f -p roles/ -r requirements.yml
+ansible-galaxy install -f -p roles/ -r requirements.yml --ignore-errors
 ansible-playbook ${PLAYBOOKYML}
