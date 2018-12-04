@@ -23,7 +23,7 @@ if [ $# -ne 7 ]; then
     exit 1
 fi
 #-----------------------------------------------------------------------------------------------------------------------------#
-while getopts :c:u:p:d:e:g:p: optname; do
+while getopts :c:u:p:d:e:g:m: optname; do
     log "INFO:Option $optname set with value ${OPTARG}"
   case $optname in
     c) # 
@@ -44,7 +44,7 @@ while getopts :c:u:p:d:e:g:p: optname; do
     g) # define url
       GIT_URL=${OPTARG}
       ;;
-    p) # define the playbook
+    m) # define the playbook
       PLAYBOOKYML=${OPTARG}
       ;;
     \?) #Invalid option - show help
