@@ -19,11 +19,11 @@ function log()
 #---PARSE AND VALIDATE PARAMETERS---
 if [ $# -ne 7 ]; then
     log "ERROR:Wrong number of arguments specified. Parameters received $#. Terminating the script."
-    usage
+    
     exit 1
 fi
 #-----------------------------------------------------------------------------------------------------------------------------#
-while getopts :c:u:p:f:a:k: optname; do
+while getopts :c:u:p:d:e:g:p: optname; do
     log "INFO:Option $optname set with value ${OPTARG}"
   case $optname in
     c) # 
@@ -49,7 +49,7 @@ while getopts :c:u:p:f:a:k: optname; do
       ;;
     \?) #Invalid option - show help
       log "ERROR:Option -${BOLD}$OPTARG${NORM} not allowed."
-      usage
+      
       exit 1
       ;;
   esac
